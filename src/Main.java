@@ -7,7 +7,8 @@ public class Main {
 //        entradaDeDados();
 //        exercicioConcatenacao();
 //        EstruturasCondicionais.atividade();
-        EstruturasDeRepeticao.atividade();
+//        EstruturasDeRepeticao.atividade();
+        CondicaoBitwise.atividade();
 
     }
 
