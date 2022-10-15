@@ -6,7 +6,8 @@ public class Main {
     public static void main(String[] args) {
 //        entradaDeDados();
 //        exercicioConcatenacao();
-        EstruturasCondicionais.atividade();
+//        EstruturasCondicionais.atividade();
+        EstruturasDeRepeticao.atividade();
 
     }
 
