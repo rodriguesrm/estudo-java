@@ -4,8 +4,13 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        OperacoesBasicas.atividades();
-        EntradaDados.atividades();
+//        OperacoesBasicas.atividades();
+//        EntradaDados.atividades();//        entradaDeDados();
+//        exercicioConcatenacao();
+//        EstruturasCondicionais.atividade();
+//        EstruturasDeRepeticao.atividade();
+        CondicaoBitwise.atividade();
+
     }
 
 
