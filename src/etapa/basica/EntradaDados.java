@@ -1,3 +1,5 @@
+package etapa.basica;
+
 import java.util.Locale;
 import java.util.Scanner;
 
