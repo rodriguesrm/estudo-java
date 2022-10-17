@@ -32,16 +32,10 @@ public class Program {
 
         }
 
-        double p = (x.a + x.b + x.c) / 2.0;
-        double areaX = Math.sqrt(p * (p - x.a) * (p - x.b) * (p - x.c));
+        System.out.printf("Triangulo X poxsui a área de %.4f%n", x.area());
+        System.out.printf("Triangulo Y poxsui a área de %.4f%n", y.area());
 
-        p = (y.a + y.b + y.c) / 2.0;
-        double areaY = Math.sqrt(p * (p - y.a) * (p - y.b) * (p - y.c));
-
-        System.out.printf("Triangulo X poxsui a área de %.4f%n", areaX);
-        System.out.printf("Triangulo Y poxsui a área de %.4f%n", areaY);
-
-        if (areaX > areaY)
+        if (x.area() > y.area())
             System.out.println("A maior área é do triângulo X");
         else
             System.out.println("A maior área é do triângulo Y");
