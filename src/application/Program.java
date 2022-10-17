@@ -15,27 +15,23 @@ public class Program {
 
     private static void solucaoComOrientacaoObjeto() {
 
-        Triangle x = new Triangle();
-        Triangle y = new Triangle();
+        Triangle x;
+        Triangle y;
 
         try(Scanner sc = new Scanner(System.in)) {
 
             System.out.println("Entre com as medidas do triangulo X");
-            x.a = sc.nextDouble();
-            x.b = sc.nextDouble();
-            x.c = sc.nextDouble();
+            x = new Triangle(sc.nextDouble(), sc.nextDouble(), sc.nextDouble());
 
             System.out.println("Entre com as medidas do triangulo Y");
-            y.a = sc.nextDouble();
-            y.b = sc.nextDouble();
-            y.c = sc.nextDouble();
+            y = new Triangle(sc.nextDouble(), sc.nextDouble(), sc.nextDouble());
 
         }
 
-        System.out.printf("Triangulo X poxsui a área de %.4f%n", x.area());
-        System.out.printf("Triangulo Y poxsui a área de %.4f%n", y.area());
+        System.out.printf("Triangulo X poxsui a área de %.4f%n", x.getArea());
+        System.out.printf("Triangulo Y poxsui a área de %.4f%n", y.getArea());
 
-        if (x.area() > y.area())
+        if (x.getArea() > y.getArea())
             System.out.println("A maior área é do triângulo X");
         else
             System.out.println("A maior área é do triângulo Y");
