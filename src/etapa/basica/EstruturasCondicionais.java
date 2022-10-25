@@ -10,42 +10,42 @@ public class EstruturasCondicionais {
 
     private static void diaDaSemana() {
 
-        Scanner sc = new Scanner(System.in);
+        try(Scanner sc = new Scanner(System.in)) {
 
-        System.out.print("Informe o número do dia (1-7): ");
-        int numeroDia = sc.nextInt();
+            System.out.print("Informe o número do dia (1-7): ");
+            int numeroDia = sc.nextInt();
 
-        String nomeDia;
-        switch (numeroDia) {
-            case 1:
-                nomeDia = "domingo";
-                break;
-            case 2:
-                nomeDia = "segunda";
-                break;
-            case 3:
-                nomeDia = "terça";
-                break;
-            case 4:
-                nomeDia = "quarta";
-                break;
-            case 5:
-                nomeDia = "quinta";
-                break;
-            case 6:
-                nomeDia = "sexta";
-                break;
-            case 7:
-                nomeDia = "sábado";
-                break;
-            default:
-                nomeDia = "Dia inválido";
+            String nomeDia;
+            switch (numeroDia) {
+                case 1:
+                    nomeDia = "domingo";
+                    break;
+                case 2:
+                    nomeDia = "segunda";
+                    break;
+                case 3:
+                    nomeDia = "terça";
+                    break;
+                case 4:
+                    nomeDia = "quarta";
+                    break;
+                case 5:
+                    nomeDia = "quinta";
+                    break;
+                case 6:
+                    nomeDia = "sexta";
+                    break;
+                case 7:
+                    nomeDia = "sábado";
+                    break;
+                default:
+                    nomeDia = "Dia inválido";
+
+            }
+
+            System.out.println(nomeDia);
 
         }
-
-        System.out.println(nomeDia);
-
-        sc.close();
 
     }
 

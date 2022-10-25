@@ -1,18 +1,22 @@
 package application.entities;
 
+import java.awt.dnd.InvalidDnDOperationException;
+
 public class Triangle {
 
     // region Objetos/Variáveis locais
+
     private double a;
     private double b;
     private double c;
+
+    private double semiPerimetro;
+
     // endregion
 
     // region Construtores
 
-    public Triangle() {
-        this.a = this.b = this.c = 0;
-    }
+    public Triangle() { this(0, 0, 0); }
 
     /**
      * Cria uma nova instância do triângulo
@@ -24,30 +28,51 @@ public class Triangle {
         this.a = a;
         this.b = b;
         this.c = c;
+        calculaArea();
     }
     // endregion
 
     // region Propriedades
 
-    public void setA(double a) { this.a = a; }
+    public void setA(double a) {
+        this.a = a;
+        calculaArea();
+    }
     public double getA() { return this.a; }
 
-    public void setB(double b) { this.b = b; }
+    public void setB(double b) {
+        this.b = b;
+        calculaArea();
+    }
     public double getB() { return this.b; }
 
-    public void setC(double c) { this.c = c; }
+    public void setC(double c) {
+        this.c = c;
+        calculaArea();
+    }
     public double getC() { return this.c; }
 
     // endregion
 
-    // region Métodos
+    // region Métodos Locais
+    private void calculaArea() {
+        this.semiPerimetro = (this.a + this.b + this.c) / 2.0;
+    }
+    // endregion
+
+    // region Métodos Públicos
 
     /**
      * Calcula a área do triângulo
      */
     public double getArea() {
-        double p = (this.a + this.b + this.c) / 2.0;
-        return Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c));
+        if (!isValid())
+            throw  new InvalidDnDOperationException("O triângulo é inválido");
+        return Math.sqrt(this.semiPerimetro);
+    }
+
+    public boolean isValid() {
+        return (this.semiPerimetro > 0);
     }
 
     // endregion
