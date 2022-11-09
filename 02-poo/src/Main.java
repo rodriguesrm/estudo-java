@@ -1,5 +1,9 @@
+import exercicios.listas.EmpStore;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+//        Vetores.exercicioForEach();
+//        Listas.exercicioLista01();
+        EmpStore.open();
     }
 }
