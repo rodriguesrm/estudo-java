@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class EmpStore {
 
@@ -68,6 +69,37 @@ public class EmpStore {
 
     }
 
+    private static void increese(Scanner sc, List<Emplyoee> emplyoeeList) {
+
+        System.out.print("+----------------------------------------------------------------------------+");
+
+        System.out.printf("%nInforme o salário a ser reajustado: ");
+        double salary = sc.nextDouble();
+
+        System.out.printf("%nInforme o percentual de reajuste: ");
+        double tax = sc.nextDouble();
+
+        emplyoeeList
+                .stream()
+                .filter(x -> x.getSalary() == salary)
+                .collect(Collectors.toList())
+                .forEach(emplyoee -> {
+                    double oldSalary = emplyoee.getSalary();
+                    double newSalary = oldSalary * (1 + (tax / 100));
+                    emplyoee.setSalary(newSalary);
+                    System.out.printf("%nId: %d - %s - Salário reajustado de %.2f para %.2f !",
+                            emplyoee.getId(),
+                            emplyoee.getName(),
+                            oldSalary,
+                            newSalary);
+                });
+
+        System.out.printf("%n%n");
+        waitToEnter(sc);
+        System.out.printf("%n%n");
+
+    }
+
     private static void locate(Scanner sc, List<Emplyoee> emplyoeeList) {
 
         System.out.print("+----------------------------------------------------------------------------+");
@@ -86,10 +118,10 @@ public class EmpStore {
         } else {
 
             printEmploye(emplyoee);
-            waitToEnter(sc);
-
-            System.out.printf("%n%n");
         }
+
+        waitToEnter(sc);
+        System.out.printf("%n%n");
 
     }
 
@@ -116,7 +148,8 @@ public class EmpStore {
                 System.out.println("+----------------------------------------------------------------------------+");
                 System.out.println("| 1 - Cadastrar                                                              |");
                 System.out.println("| 2 - Consultar                                                              |");
-                System.out.println("| 3 - Relatorio                                                              |");
+                System.out.println("| 3 - Reajuste                                                               |");
+                System.out.println("| 4 - Relatorio                                                              |");
                 System.out.println("| 0 - SAIR                                                                   |");
                 System.out.println("+----------------------------------------------------------------------------+");
 
@@ -132,6 +165,9 @@ public class EmpStore {
                         locate(sc, emplyoees);
                         break;
                     case 3:
+                        increese(sc, emplyoees);
+                        break;
+                    case 4:
                         listaAll(sc, emplyoees);
                         break;
                     default:
